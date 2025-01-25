@@ -1,3 +1,4 @@
+
 name: Release Statically Linked Rust Binary
 
 on:
@@ -11,8 +12,8 @@ jobs:
     strategy:
       matrix:
         target:
-          - x86_64-unknown-linux-musl
-          - aarch64-unknown-linux-musl
+          - x86_64-unknown-linux-musl       # Linux (musl)
+          - aarch64-unknown-linux-musl      # ARM Linux (musl)
 
     env:
       BINARY_NAME: Med_FileOrganizer
@@ -24,34 +25,35 @@ jobs:
       - name: Install Rust
         uses: dtolnay/rust-toolchain@stable
 
-      - name: Verify Rust Installation
-        run: rustc --version
-
       - name: Install Cross
         run: cargo install cross
 
-      - name: Verify Cross Installation
-        run: cross --version
-
-      - name: Add Target
+      - name: Install Target for Cross Compilation
         run: rustup target add ${{ matrix.target }}
 
       - name: Build with Cross
         run: cross build --target ${{ matrix.target }} --release --verbose
 
-      - name: Debug Output
-        run: ls -R target/${{ matrix.target }}/release/
-
       - name: Create Release Archive
         run: |
           mkdir -p release
-          cp target/${{ matrix.target }}/release/${{ env.BINARY_NAME }} release/
-          tar -czvf ${{ matrix.target }}.tar.gz -C release ${{ env.BINARY_NAME }}
+
+          if [[ "${{ matrix.target }}" == *"windows"* ]]; then
+            cp target/${{ matrix.target }}/release/$BINARY_NAME.exe release/
+            zip -r ${{ matrix.target }}.zip release
+          elif [[ "${{ matrix.target }}" == *"darwin"* ]]; then
+            cp target/${{ matrix.target }}/release/$BINARY_NAME release/
+            tar -czvf ${{ matrix.target }}.tar.gz -C release $BINARY_NAME
+          else
+            cp target/${{ matrix.target }}/release/$BINARY_NAME release/
+            tar -czvf ${{ matrix.target }}.tar.gz -C release $BINARY_NAME
+          fi
 
       - name: Upload Release Assets
         uses: softprops/action-gh-release@v2
         with:
           files: |
             *.tar.gz
+            *.zip
         env:
           GITHUB_TOKEN: ${{ secrets.Nethu }}

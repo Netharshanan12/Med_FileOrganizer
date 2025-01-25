@@ -38,10 +38,7 @@ jobs:
         run: |
           mkdir -p release
 
-          if [[ "${{ matrix.target }}" == *"windows"* ]]; then
-            cp target/${{ matrix.target }}/release/$BINARY_NAME.exe release/
-            zip -r ${{ matrix.target }}.zip release
-          elif [[ "${{ matrix.target }}" == *"darwin"* ]]; then
+          if [[ "${{ matrix.target }}" == *"darwin"* ]]; then
             cp target/${{ matrix.target }}/release/$BINARY_NAME release/
             tar -czvf ${{ matrix.target }}.tar.gz -C release $BINARY_NAME
           else

@@ -30,14 +30,13 @@ jobs:
         run: cargo install cross
 
       - name: Build with Cross
-        run: |
-          cd code
+        run: 
           cross build --target ${{ matrix.target }} --release --verbose
 
       - name: Create Release Archive
         run: |
           mkdir -p release
-          cp code/target/${{ matrix.target }}/release/$BINARY_NAME release/
+          cp target/${{ matrix.target }}/release/$BINARY_NAME release/
           tar -czvf ${{ matrix.target }}.tar.gz -C release $BINARY_NAME
 
       - name: Upload Release Assets

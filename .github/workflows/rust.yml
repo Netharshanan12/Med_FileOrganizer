@@ -45,8 +45,8 @@ jobs:
       - name: Create Release Archive
         run: |
           mkdir -p release
-          cp target/${{ matrix.target }}/release/$BINARY_NAME release/
-          tar -czvf ${{ matrix.target }}.tar.gz -C release $BINARY_NAME
+          cp target/${{ matrix.target }}/release/${{ env.BINARY_NAME }} release/
+          tar -czvf ${{ matrix.target }}.tar.gz -C release ${{ env.BINARY_NAME }}
 
       - name: Upload Release Assets
         uses: softprops/action-gh-release@v2

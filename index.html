@@ -3,70 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MedFileSort - Healthcare File Management</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Medical File Organizer CLI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f9fc;
+            color: #333;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+        section {
+            margin-bottom: 30px;
+        }
+        h1, h2 {
+            color: #4CAF50;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        code {
+            background-color: #e8e8e8;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <h1>MedFileSort</h1>
-            <p>Your CLI tool for secure and efficient healthcare file management.</p>
-            <a href="#download" class="btn">Get Started</a>
-        </div>
+    <header>
+        <h1>Medical File Organizer Command Line Tool</h1>
+        <p>Organize and manage medical files effortlessly</p>
     </header>
-
-    <section id="features" class="section">
-        <div class="container">
-            <h2>Features</h2>
-            <ul class="feature-list">
-                <li>⚡ Cross-platform support (Linux, Windows, MacOS)</li>
-                <li>🔒 AES-256 encryption for sensitive files</li>
-                <li>📂 Automatic file categorization by patient and type</li>
-                <li>🤖 Easy-to-use CLI for automation</li>
-                <li>📊 Supports healthcare-specific file formats like DICOM, PDFs, and more</li>
+    <main>
+        <section>
+            <h2>📋 Features</h2>
+            <ul>
+                <li>Organizes files by <strong>patient name</strong> and <strong>file type</strong>.</li>
+                <li>Supports multiple file formats:
+                    <ul>
+                        <li>Imaging Files: <code>.dcm</code></li>
+                        <li>Patient Reports: <code>.pdf</code>, <code>.docx</code>, <code>.txt</code></li>
+                        <li>Lab Reports: <code>.csv</code>, <code>.xlsx</code>, <code>.xls</code></li>
+                        <li>Other Files: Any other formats.</li>
+                    </ul>
+                </li>
+                <li>Processes multiple directories simultaneously.</li>
+                <li>Handles duplicate file names by appending unique suffixes.</li>
             </ul>
-        </div>
-    </section>
-
-    <section id="pricing" class="section bg-light">
-        <div class="container">
-            <h2>Pricing</h2>
-            <div class="pricing">
-                <div class="pricing-plan">
-                    <h3>Free</h3>
-                    <p>Basic file organization and categorization.</p>
-                    <span class="price">$0</span>
-                </div>
-                <div class="pricing-plan">
-                    <h3>Pro</h3>
-                    <p>Advanced features like encryption and priority support.</p>
-                    <span class="price">$9.99/mo</span>
-                </div>
-                <div class="pricing-plan">
-                    <h3>Enterprise</h3>
-                    <p>Custom solutions for large organizations.</p>
-                    <span class="price">Contact Us</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="download" class="section">
-        <div class="container">
-            <h2>Download</h2>
-            <p>Get MedFileSort for your platform:</p>
-            <div class="download-buttons">
-                <a href="#" class="btn">Download for Linux</a>
-                <a href="#" class="btn">Download for Windows</a>
-                <a href="#" class="btn">Download for MacOS</a>
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 MedFileSort. All rights reserved.</p>
-        </div>
+        </section>
+        <section>
+            <h2>🚀 How to Run</h2>
+            <ol>
+                <li>Download the CLI tool for your platform:
+                    <ul>
+                        <li><a href="#">Linux (x86_64)</a></li>
+                        <li><a href="#">Linux (aarch64)</a></li>
+                        <li><a href="#">Windows</a></li>
+                        <li><a href="#">MacOS</a></li>
+                    </ul>
+                </li>
+                <li>Run the following command in your terminal:
+                    <pre><code>./Medical_file_organize --directories <DIR1,DIR2,...></code></pre>
+                </li>
+                <li>Replace <code>&lt;DIR1,DIR2,...&gt;</code> with the paths to the directories you want to organize.</li>
+                <li>All organized files will be saved in the <code>output</code> folder.</li>
+            </ol>
+        </section>
+        <section>
+            <h2>✅ Pros</h2>
+            <ul>
+                <li>Efficiently handles multiple directories.</li>
+                <li>Supports a wide range of medical file formats.</li>
+                <li>Automatically creates a structured folder hierarchy.</li>
+                <li>Ensures no file is overwritten with robust duplicate handling.</li>
+            </ul>
+        </section>
+        <section>
+            <h2>❌ Cons</h2>
+            <ul>
+                <li>Requires basic knowledge of command-line tools to use.</li>
+                <li>No real-time monitoring of directories (only processes on demand).</li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Medical File Organizer | All Rights Reserved</p>
     </footer>
 </body>
 </html>

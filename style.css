@@ -1,116 +1,42 @@
-/* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    color: #333;
-}
-
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Header Section */
-.header {
-    background: linear-gradient(135deg, #1d4ed8, #2563eb);
-    color: white;
-    text-align: center;
-    padding: 3rem 1rem;
-}
-
-.header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-.header p {
-    font-size: 1.2rem;
-    margin-bottom: 1.5rem;
-}
-
-.header .btn {
-    background: #10b981;
-    color: white;
-    padding: 0.8rem 2rem;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background 0.3s;
-}
-
-.header .btn:hover {
-    background: #059669;
-}
-
-/* Section Styles */
-.section {
-    padding: 2rem 0;
-}
-
-.section h2 {
-    text-align: center;
-    margin-bottom: 1.5rem;
-    font-size: 2rem;
-}
-
-.feature-list {
-    list-style: none;
-    padding: 0;
-    margin: 0 auto;
-    max-width: 600px;
-}
-
-.feature-list li {
-    margin: 0.5rem 0;
-    padding-left: 1rem;
-    position: relative;
-}
-
-.feature-list li::before {
-    content: "✔";
-    color: #10b981;
-    position: absolute;
-    left: 0;
-}
-
-/* Pricing Section */
-.bg-light {
-    background: #f9f9f9;
-}
-
-.pricing {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 2rem;
-}
-
-.pricing-plan {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    flex: 1;
-    margin: 0 1rem;
-}
-
-.pricing-plan h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-}
-
-.pricing-plan .price {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #1d4ed8;
-}
-
-/* Footer */
-.footer {
-    background: #1d4ed8;
-    color: white;
-    text-align: center;
-    padding: 1rem 0;
-}
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f9fc;
+            color: #333;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+        section {
+            margin-bottom: 30px;
+        }
+        h1, h2 {
+            color: #4CAF50;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        code {
+            background-color: #e8e8e8;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }

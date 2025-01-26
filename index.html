@@ -3,68 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Medical File Organizer CLI</title>
+    <title>Medical File Organizer CLI Tool</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            background: #0078D7;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            color: #0078D7;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 0.5rem;
+            text-align: left;
+        }
+        th {
+            background: #f4f4f4;
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            color: #fff;
+            background: #0078D7;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 1rem;
+        }
+        .btn:hover {
+            background: #005bb5;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Medical File Organizer Command Line Tool</h1>
-        <p>Organize and manage medical files effortlessly</p>
+        <h1>Medical File Organizer CLI Tool</h1>
     </header>
-    <main>
-        <section>
-            <h2>📋 Features</h2>
-            <ul>
-                <li>Organizes files by <strong>patient name</strong> and <strong>file type</strong>.</li>
-                <li>Supports multiple file formats:
-                    <ul>
-                        <li>Imaging Files: <code>.dcm</code></li>
-                        <li>Patient Reports: <code>.pdf</code>, <code>.docx</code>, <code>.txt</code></li>
-                        <li>Lab Reports: <code>.csv</code>, <code>.xlsx</code>, <code>.xls</code></li>
-                        <li>Other Files: Any other formats.</li>
-                    </ul>
-                </li>
-                <li>Processes multiple directories simultaneously.</li>
-                <li>Handles duplicate file names by appending unique suffixes.</li>
-            </ul>
-        </section>
-        <section>
-            <h2>🚀 How to Run</h2>
-            <ol>
-                <li>Download the CLI tool for your platform:
-                    <ul>
-                        <li><a href="#">Linux (x86_64)</a></li>
-                        <li><a href="#">Linux (aarch64)</a></li>
-                        <li><a href="#">Windows</a></li>
-                        <li><a href="#">MacOS</a></li>
-                    </ul>
-                </li>
-                <li>Run the following command in your terminal:
-                    <pre><code>./Medical_file_organize --directories <DIR1,DIR2,...></code></pre>
-                </li>
-                <li>Replace <code>&lt;DIR1,DIR2,...&gt;</code> with the paths to the directories you want to organize.</li>
-                <li>All organized files will be saved in the <code>output</code> folder.</li>
-            </ol>
-        </section>
-        <section>
-            <h2>✅ Pros</h2>
-            <ul>
-                <li>Efficiently handles multiple directories.</li>
-                <li>Supports a wide range of medical file formats.</li>
-                <li>Automatically creates a structured folder hierarchy.</li>
-                <li>Ensures no file is overwritten with robust duplicate handling.</li>
-            </ul>
-        </section>
-        <section>
-            <h2>❌ Cons</h2>
-            <ul>
-                <li>Requires basic knowledge of command-line tools to use.</li>
-                <li>No real-time monitoring of directories (only processes on demand).</li>
-            </ul>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2025 Medical File Organizer | All Rights Reserved</p>
-    </footer>
+
+    <div class="container">
+        <h2>About the Tool</h2>
+        <p>The Medical File Organizer CLI Tool is a command-line application designed to organize medical files efficiently. It categorizes files by patient name and file type, ensuring your data is always easy to find and manage.</p>
+
+        <h2>File Naming Structure</h2>
+        <p>To maximize the tool's effectiveness, ensure your files follow this naming structure:</p>
+        <ul>
+            <li><strong>Format:</strong> <code>PatientName_FileType_Date.extension</code></li>
+            <li><strong>Example:</strong> <code>JohnDoe_Report_2025-01-26.pdf</code></li>
+        </ul>
+        <p>Files that do not follow this structure will still be organized but may be categorized under "Unknown_Patient."</p>
+
+        <h2>How to Use</h2>
+        <ol>
+            <li>Download the tool as a binary for your platform (Linux, Windows, or MacOS).</li>
+            <li>Place the executable in your desired directory.</li>
+            <li>Run the tool using the following syntax:
+                <pre><code>Medical_file_organize --directories DIR1,DIR2</code></pre>
+            </li>
+            <li>Replace <code>DIR1</code> and <code>DIR2</code> with the paths to your directories.</li>
+        </ol>
+        <p>For help, use:
+            <pre><code>Medical_file_organize --help</code></pre>
+        </p>
+
+        <h2>Features</h2>
+        <ul>
+            <li>Supports multiple directories.</li>
+            <li>Handles duplicate files with unique naming.</li>
+            <li>Categorizes files into types such as Imaging Files, Patient Reports, Lab Reports, and Others.</li>
+            <li>Generates organized folders automatically.</li>
+        </ul>
+
+        <h2>Comparison with Other Tools</h2>
+        <table>
+            <tr>
+                <th>Feature</th>
+                <th>Medical File Organizer</th>
+                <th>Generic File Organizers</th>
+            </tr>
+            <tr>
+                <td>Category-Based Sorting</td>
+                <td>Yes</td>
+                <td>Limited</td>
+            </tr>
+            <tr>
+                <td>Patient-Centric Organization</td>
+                <td>Yes</td>
+                <td>No</td>
+            </tr>
+            <tr>
+                <td>Customizable File Naming</td>
+                <td>Yes</td>
+                <td>Partial</td>
+            </tr>
+        </table>
+
+        <h2>How We Attract Users</h2>
+        <p>We focus on showcasing the tool's unique value to healthcare professionals, researchers, and organizations. Key strategies include:</p>
+        <ul>
+            <li><strong>Social Media Campaigns:</strong> Demonstrate the tool's efficiency on LinkedIn, Twitter, and other platforms.</li>
+            <li><strong>Testimonials:</strong> Share success stories from early adopters to build trust.</li>
+            <li><strong>Content Marketing:</strong> Publish blog posts and guides to highlight real-world use cases.</li>
+            <li><strong>Community Engagement:</strong> Participate in healthcare and tech forums to reach niche audiences.</li>
+        </ul>
+
+        <h2>Pricing Model</h2>
+        <p>We offer a flexible pricing structure to cater to various user needs:</p>
+        <ul>
+            <li><strong>Free Tier:</strong> Basic functionalities for individual users.</li>
+            <li><strong>Professional Plan:</strong> Advanced features at $19.99/month.</li>
+            <li><strong>Enterprise Solution:</strong> Custom pricing for organizations requiring bulk licenses and dedicated support.</li>
+        </ul>
+
+        <h2>Download</h2>
+        <p>Get the tool for your platform:</p>
+        <a class="btn" href="#">Download for Linux</a>
+        <a class="btn" href="#">Download for Windows</a>
+        <a class="btn" href="#">Download for MacOS</a>
+    </div>
 </body>
 </html>

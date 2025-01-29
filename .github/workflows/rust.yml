@@ -39,19 +39,15 @@ jobs:
           mkdir -p release
           cp target/${{ matrix.target }}/release/$BINARY_NAME release/
           
-          if [[ "${{ matrix.target }}" == "x86_64-unknown-linux-gnu" ]]; then
+          if [[ "${{ matrix.target }}" =~ "linux" ]]; then
             tar -czvf release/$BINARY_NAME-linux.tar.gz -C release $BINARY_NAME
-            zip -j release/$BINARY_NAME-linux.zip release/$BINARY_NAME
-          elif [[ "${{ matrix.target }}" == "x86_64-apple-darwin" ]]; then
+          elif [[ "${{ matrix.target }}" =~ "darwin" ]]; then
             tar -czvf release/$BINARY_NAME-macos.tar.gz -C release $BINARY_NAME
-            zip -j release/$BINARY_NAME-macos.zip release/$BINARY_NAME
           fi
 
       - name: 🚀 Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          files: |
-            release/*.tar.gz
-            release/*.zip
+          files: release/*.tar.gz
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

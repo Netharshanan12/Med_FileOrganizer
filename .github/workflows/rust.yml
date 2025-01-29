@@ -37,18 +37,21 @@ jobs:
       - name: 📦 Package Binary
         run: |
           mkdir -p release
-          if [[ "${{ matrix.target }}" == "linux" ]]; then
-            cp target/${{ matrix.target }}/release/$BINARY_NAME release/
-            tar -czvf $BINARY_NAME-linux.tar.gz -C release $BINARY_NAME
-          elif [[ "${{ matrix.target }}" == "darwin" ]]; then
-            cp target/${{ matrix.target }}/release/$BINARY_NAME release/
-            tar -czvf $BINARY_NAME-macos.tar.gz -C release $BINARY_NAME
+          cp target/${{ matrix.target }}/release/$BINARY_NAME release/
+          
+          if [[ "${{ matrix.target }}" == "x86_64-unknown-linux-gnu" ]]; then
+            tar -czvf release/$BINARY_NAME-linux.tar.gz -C release $BINARY_NAME
+            zip -j release/$BINARY_NAME-linux.zip release/$BINARY_NAME
+          elif [[ "${{ matrix.target }}" == "x86_64-apple-darwin" ]]; then
+            tar -czvf release/$BINARY_NAME-macos.tar.gz -C release $BINARY_NAME
+            zip -j release/$BINARY_NAME-macos.zip release/$BINARY_NAME
           fi
 
       - name: 🚀 Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
           files: |
-            *.tar.gz
+            release/*.tar.gz
+            release/*.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

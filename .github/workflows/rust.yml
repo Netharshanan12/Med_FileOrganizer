@@ -19,7 +19,7 @@ jobs:
     runs-on: ${{ matrix.target == 'x86_64-apple-darwin' && 'macos-latest' || 'ubuntu-latest' }}
 
     env:
-      BINARY_NAME: smart_file_analyzer  # Your project's binary name
+      BINARY_NAME: Med_FileOrganizer
 
     steps:
       - name: 📥 Checkout Code

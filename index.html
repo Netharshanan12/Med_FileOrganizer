@@ -6,29 +6,44 @@
     <title>Medical File Organizer CLI Tool</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
+            background-color: #f4f7fc;
             color: #333;
         }
         header {
-            background: #0078D7;
+            background: #004c8c;
             color: #fff;
-            padding: 1rem 0;
+            padding: 2rem 0;
             text-align: center;
+            font-size: 1.4rem;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+        header p {
+            font-size: 1.1rem;
+            margin-top: 10px;
         }
         .container {
-            max-width: 800px;
-            margin: 2rem auto;
-            padding: 1rem;
+            max-width: 1100px;
+            margin: 3rem auto;
+            padding: 2rem;
             background: #fff;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         h1, h2, h3 {
-            color: #0078D7;
+            color: #white;
+        }
+        .highlight-text {
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: white;
         }
         table {
             width: 100%;
@@ -39,7 +54,7 @@
             border: 1px solid #ddd;
         }
         th, td {
-            padding: 0.5rem;
+            padding: 0.75rem;
             text-align: left;
         }
         th {
@@ -47,7 +62,7 @@
         }
         .btn {
             display: inline-block;
-            padding: 0.5rem 1rem;
+            padding: 0.75rem 1.5rem;
             color: #fff;
             background: #0078D7;
             text-decoration: none;
@@ -57,11 +72,40 @@
         .btn:hover {
             background: #005bb5;
         }
+        .copy-btn {
+            cursor: pointer;
+            background: #0078D7;
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border: none;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+        .copy-btn:hover {
+            background: #005bb5;
+        }
+        ul {
+            margin: 1rem 0;
+        }
+        ul li {
+            margin-bottom: 0.5rem;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 1rem;
+            border-radius: 4px;
+            font-size: 1.1rem;
+        }
     </style>
 </head>
 <body>
+
     <header>
         <h1>Medical File Organizer CLI Tool</h1>
+        <p class="highlight-text">Efficiently organize and manage medical files</p>
+       <a class="btn" href="https://github.com/Netharshanan12/Med_FileOrganizer" target="_blank">🔗 View on GitHub</a>
+        <a class="btn" href="https://github.com/Netharshanan12/Med_FileOrganizer/releases/download/v1.0.2/Med_FileOrganizer-linux.tar.gz"> Download for Linux</a>
+        <a class="btn" href="https://github.com/Netharshanan12/Med_FileOrganizer/releases/download/v1.0.2/Med_FileOrganizer-macos.tar.gz"> Download for MacOS</a>
     </header>
 
     <div class="container">
@@ -76,18 +120,27 @@
         </ul>
         <p>Files that do not follow this structure will still be organized but may be categorized under "Unknown_Patient."</p>
 
+        <h2>Folder Structure</h2>
+        <pre>
+        ├── JohnDoe/
+        │   ├── Imaging_Files/
+        │   │   ├── JohnDoe_MRI_2025-01-26.dcm
+        │   ├── Patient_Reports/
+        │   │   ├── JohnDoe_Report_2025-01-26.pdf
+        │   ├── Lab_Reports/
+        │   │   ├── JohnDoe_LabResults_2025-01-26.csv
+        </pre>
+
         <h2>How to Use</h2>
         <ol>
             <li>Download the tool as a binary for your platform (Linux, Windows, or MacOS).</li>
             <li>Place the executable in your desired directory.</li>
             <li>Run the tool using the following syntax:
                 <pre><code>./Med_FileOrganizer --directories DIR1,DIR2</code></pre>
+                <button class="copy-btn" onclick="copyToClipboard('run-command')">📋 Copy</button>
             </li>
             <li>Replace <code>DIR1</code> and <code>DIR2</code> with the paths to your directories.</li>
         </ol>
-        <p>For help, use:
-            <pre><code>Medical_file_organize --help</code></pre>
-        </p>
 
         <h2>Features</h2>
         <ul>
@@ -134,15 +187,17 @@
         <p>We offer a flexible pricing structure to cater to various user needs:</p>
         <ul>
             <li><strong>Free Tier:</strong> Basic functionalities for individual users.</li>
-            <li><strong>Professional Plan:</strong> Advanced features at $19.99/month.</li>
+            <li><strong>Professional Plan:</strong> Advanced features at $5.99/month.</li>
             <li><strong>Enterprise Solution:</strong> Custom pricing for organizations requiring bulk licenses and dedicated support.</li>
         </ul>
-
-        <h2>Download</h2>
-        <p>Get the tool for your platform:</p>
-        <a class="btn" href="#">Download for Linux</a>
-        <a class="btn" href="#">Download for Windows</a>
-        <a class="btn" href="#">Download for MacOS</a>
     </div>
+
+    <script>
+        function copyToClipboard(elementId) {
+            var copyText = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(copyText);
+            alert("Copied to clipboard: " + copyText);
+        }
+    </script>
 </body>
 </html>

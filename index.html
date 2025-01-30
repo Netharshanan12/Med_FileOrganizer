@@ -103,7 +103,7 @@
     <header>
         <h1>Medical File Organizer CLI Tool</h1>
         <p class="highlight-text">Efficiently organize and manage medical files</p>
-       <a class="btn" href="https://github.com/Netharshanan12/Med_FileOrganizer" target="_blank">🔗 View on GitHub</a>
+        <a class="btn" href="https://github.com/Netharshanan12/Med_FileOrganizer" target="_blank">🔗 View on GitHub</a>
         <a class="btn" href="https://github.com/Netharshanan12/Med_FileOrganizer/releases/download/v1.0.2/Med_FileOrganizer-linux.tar.gz"> Download for Linux</a>
         <a class="btn" href="https://github.com/Netharshanan12/Med_FileOrganizer/releases/download/v1.0.2/Med_FileOrganizer-macos.tar.gz"> Download for MacOS</a>
     </header>
@@ -136,7 +136,7 @@
             <li>Download the tool as a binary for your platform (Linux, Windows, or MacOS).</li>
             <li>Place the executable in your desired directory.</li>
             <li>Run the tool using the following syntax:
-                <pre><code>./Med_FileOrganizer --directories DIR1,DIR2</code></pre>
+                <pre id="run-command"><code>./Med_FileOrganizer --directories DIR1,DIR2</code></pre>
                 <button class="copy-btn" onclick="copyToClipboard('run-command')">📋 Copy</button>
             </li>
             <li>Replace <code>DIR1</code> and <code>DIR2</code> with the paths to your directories.</li>
@@ -194,7 +194,7 @@
 
     <script>
         function copyToClipboard(elementId) {
-            var copyText = document.getElementById(elementId).innerText;
+            var copyText = document.getElementById(elementId).textContent;
             navigator.clipboard.writeText(copyText);
             alert("Copied to clipboard: " + copyText);
         }
